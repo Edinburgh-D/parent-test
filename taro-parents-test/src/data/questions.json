@@ -1,0 +1,227 @@
+[
+  {
+    "id": 1,
+    "question": "孩子放学回家说不想写作业，想先玩一会儿，你会？",
+    "options": [
+      { "text": "必须先把作业写完，规矩不能破", "type": "control" },
+      { "text": "问他今天是不是累了，商量一个时间", "type": "empathy" },
+      { "text": "没问题，他自己安排就好", "type": "freedom" }
+    ]
+  },
+  {
+    "id": 2,
+    "question": "孩子在公共场合大哭大闹，你的第一反应是？",
+    "options": [
+      { "text": "立刻制止，告诉他这样很丢脸", "type": "control" },
+      { "text": "蹲下来抱抱他，先安抚情绪", "type": "empathy" },
+      { "text": "让他哭完，等情绪过去了再聊", "type": "freedom" }
+    ]
+  },
+  {
+    "id": 3,
+    "question": "孩子考试成绩不理想，你会怎么沟通？",
+    "options": [
+      { "text": "分析错题，制定下次目标分数", "type": "control" },
+      { "text": "先肯定努力，再一起找原因", "type": "empathy" },
+      { "text": "成绩不是全部，开心健康更重要", "type": "freedom" }
+    ]
+  },
+  {
+    "id": 4,
+    "question": "孩子想报一个你觉得没前途的兴趣班，你会？",
+    "options": [
+      { "text": "直接否定，帮他选更有用的", "type": "control" },
+      { "text": "认真听他为什么喜欢，再讨论", "type": "empathy" },
+      { "text": "支持他，喜欢就去尝试", "type": "freedom" }
+    ]
+  },
+  {
+    "id": 5,
+    "question": "你对孩子未来的规划态度是？",
+    "options": [
+      { "text": "已经有大致路径，会一步步引导", "type": "control" },
+      { "text": "根据他的兴趣和优势动态调整", "type": "empathy" },
+      { "text": "未来是他自己的，我不做预设", "type": "freedom" }
+    ]
+  },
+  {
+    "id": 6,
+    "question": "孩子和其他小朋友发生冲突，你会？",
+    "options": [
+      { "text": "告诉他该怎么做，必要时出面解决", "type": "control" },
+      { "text": "引导他说出感受，教他换位思考", "type": "empathy" },
+      { "text": "让孩子们自己处理，大人不插手", "type": "freedom" }
+    ]
+  },
+  {
+    "id": 7,
+    "question": "你如何看待孩子玩手机/平板这件事？",
+    "options": [
+      { "text": "严格控制时间，到点就收", "type": "control" },
+      { "text": "约定规则，也尊重他的娱乐需求", "type": "empathy" },
+      { "text": "不太管，他自己会把握", "type": "freedom" }
+    ]
+  },
+  {
+    "id": 8,
+    "question": "当孩子问你‘为什么要听你的’，你会怎么回答？",
+    "options": [
+      { "text": "因为我是你爸妈，这是为你好", "type": "control" },
+      { "text": "解释我的考虑，也听他的想法", "type": "empathy" },
+      { "text": "你可以不听，但自己要承担结果", "type": "freedom" }
+    ]
+  },
+  {
+    "id": 9,
+    "question": "你更认同以下哪种育儿观念？",
+    "options": [
+      { "text": "玉不琢不成器，孩子需要管教", "type": "control" },
+      { "text": "爱和理解是最好的教育", "type": "empathy" },
+      { "text": "顺其自然，每个孩子有自己的节奏", "type": "freedom" }
+    ]
+  },
+  {
+    "id": 10,
+    "question": "周末家庭时间，你通常怎么安排？",
+    "options": [
+      { "text": "有固定计划：学习、运动、阅读", "type": "control" },
+      { "text": "问问孩子想做什么，一起商量", "type": "empathy" },
+      { "text": "各做各的，大家都自在", "type": "freedom" }
+    ]
+  },
+  {
+    "question": "孩子晚上10点还在刷短视频，明天要早起上学，你会？",
+    "options": [
+      {"text": "直接没收手机，设定严格使用时间", "type": "control"},
+      {"text": "坐下来问问是不是有什么心事睡不着", "type": "empathy"},
+      {"text": "相信孩子能自己把控，不干涉", "type": "freedom"},
+      {"text": "提醒一次，超时后果自负", "type": "freedom"}
+    ]
+  },
+  {
+    "question": "5岁孩子在超市躺地上哭闹要买玩具，周围人都在看，你会？",
+    "options": [
+      {"text": "严厉制止：不起来就直接回家", "type": "control"},
+      {"text": "蹲下来抱住他：我知道你很难过", "type": "empathy"},
+      {"text": "退到一旁安静等待他哭完", "type": "freedom"},
+      {"text": "立即买下玩具停止这场闹剧", "type": "empathy"}
+    ]
+  },
+  {
+    "question": "孩子说他不想上钢琴课了，已经学了一年，你会？",
+    "options": [
+      {"text": "坚持继续，学乐器不能半途而废", "type": "control"},
+      {"text": "问他是不是遇到了困难或不喜欢老师", "type": "empathy"},
+      {"text": "尊重他的决定，退课", "type": "freedom"},
+      {"text": "重新评估他的天赋和兴趣再决定", "type": "control"}
+    ]
+  },
+  {
+    "question": "孩子最好的朋友转学了，他连续一周情绪低落，你会？",
+    "options": [
+      {"text": "帮他规划时间表，填满空闲时间", "type": "control"},
+      {"text": "每天留出专属时间陪他聊感受", "type": "empathy"},
+      {"text": "这是成长必经的，让他自己消化", "type": "freedom"},
+      {"text": "主动联系其他家长安排新玩伴", "type": "control"}
+    ]
+  },
+  {
+    "question": "孩子偷偷用你手机给游戏充值了500元，被发现后，你会？",
+    "options": [
+      {"text": "设定支付密码，严格限制设备使用", "type": "control"},
+      {"text": "先了解他为什么需要这笔钱买装备", "type": "empathy"},
+      {"text": "让他通过家务劳动偿还这500元", "type": "freedom"},
+      {"text": "开家庭会议制定零花钱规则", "type": "control"}
+    ]
+  },
+  {
+    "question": "孩子画了一幅画，但你完全看不懂是什么，你会？",
+    "options": [
+      {"text": "引导他学习正规绘画技巧", "type": "control"},
+      {"text": "请他讲画里的故事，认真倾听", "type": "empathy"},
+      {"text": "贴冰箱上表扬，不问含义", "type": "freedom"},
+      {"text": "报名美术班系统培养", "type": "control"}
+    ]
+  },
+  {
+    "question": "孩子写作业时总是坐不住，频繁上厕所、喝水，你会？",
+    "options": [
+      {"text": "使用番茄钟法，25分钟必须专注", "type": "control"},
+      {"text": "观察是不是作业太难或压力太大", "type": "empathy"},
+      {"text": "允许他按自己的节奏完成", "type": "freedom"},
+      {"text": "撤掉所有干扰物，关门监督", "type": "control"}
+    ]
+  },
+  {
+    "question": "孩子说'我长大后想当网红'，你会？",
+    "options": [
+      {"text": "纠正他：还是考公务员稳定", "type": "control"},
+      {"text": "问他想当哪种网红，为什么吸引他", "type": "empathy"},
+      {"text": "支持，时代变了，新兴职业也有前途", "type": "freedom"},
+      {"text": "分析网红行业的残酷现实给他听", "type": "control"}
+    ]
+  },
+  {
+    "question": "孩子被同学起外号，回家哭着说不想上学了，你会？",
+    "options": [
+      {"text": "联系老师要求严肃处理此事", "type": "control"},
+      {"text": "先处理他的情绪，再问具体细节", "type": "empathy"},
+      {"text": "教他学会自嘲，强大内心", "type": "freedom"},
+      {"text": "教他当场反击的话术", "type": "control"}
+    ]
+  },
+  {
+    "question": "周末全家出游，孩子坚持要穿不合适的衣服（如羽绒服去海边），你会？",
+    "options": [
+      {"text": "强制换掉，这是为他好", "type": "control"},
+      {"text": "理解他可能有特别的理由，问问看", "type": "empathy"},
+      {"text": "让他穿，热了自然会脱", "type": "freedom"},
+      {"text": "带两件衣服，让他中途自己换", "type": "empathy"}
+    ]
+  },
+  {
+    "question": "孩子8岁了还和父母睡，分房多次失败，你会？",
+    "options": [
+      {"text": "制定分房奖励制度，严格执行", "type": "control"},
+      {"text": "了解他害怕什么，一起克服恐惧", "type": "empathy"},
+      {"text": "顺其自然，长大自然独立", "type": "freedom"},
+      {"text": "买他喜欢的床品布置房间诱导", "type": "control"}
+    ]
+  },
+  {
+    "question": "孩子考试作弊被抓，老师叫家长，你会？",
+    "options": [
+      {"text": "回家严厉惩罚，让他记住教训", "type": "control"},
+      {"text": "先听他解释为什么觉得必须作弊", "type": "empathy"},
+      {"text": "让他自己面对后果，不评判", "type": "freedom"},
+      {"text": "一起写检讨，监督后续表现", "type": "control"}
+    ]
+  },
+  {
+    "question": "孩子痴迷收集卡片/盲盒，已经花了大量零花钱，你会？",
+    "options": [
+      {"text": "禁止购买，设定每月零用钱上限", "type": "control"},
+      {"text": "理解这种收集欲背后的社交需求", "type": "empathy"},
+      {"text": "允许他自主支配，即使觉得不值", "type": "freedom"},
+      {"text": "引导投资更有价值的收藏品", "type": "control"}
+    ]
+  },
+  {
+    "question": "孩子说'你们只爱弟弟不爱我'，你会？",
+    "options": [
+      {"text": "列举你为他做的具体事情证明", "type": "control"},
+      {"text": "承认他的感受：这确实很难", "type": "empathy"},
+      {"text": "让他知道爱不是比较得来的", "type": "freedom"},
+      {"text": "制定轮流陪伴计划表", "type": "control"}
+    ]
+  },
+  {
+    "question": "孩子青春期锁房门、拒绝沟通，你会？",
+    "options": [
+      {"text": "拆掉门锁，这是我家不是他房间", "type": "control"},
+      {"text": "写信或发消息表达关心但不打扰", "type": "empathy"},
+      {"text": "尊重边界，等他愿意时再说", "type": "freedom"},
+      {"text": "找共同话题创造自然交流机会", "type": "empathy"}
+    ]
+  }
+]
