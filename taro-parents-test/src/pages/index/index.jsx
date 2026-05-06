@@ -11,7 +11,7 @@ export default function Index() {
     <View className="home">
       <View className="home-icon">👨‍👩‍👧</View>
       <Text className="home-title">父母成长等级测试</Text>
-      <Text className="home-subtitle">10道题，测出你的育儿风格与成长方向</Text>
+      <Text className="home-subtitle">25道题，测出你的育儿风格与成长方向</Text>
 
       <View className="home-features">
         <View className="home-feature-item">
