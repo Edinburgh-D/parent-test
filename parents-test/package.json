@@ -6,13 +6,28 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "dev:weapp": "taro build --type weapp --watch",
+    "build:weapp": "taro build --type weapp"
   },
   "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "@tarojs/components": "^4.2.0",
+    "@tarojs/helper": "^4.2.0",
+    "@tarojs/plugin-framework-react": "^4.2.0",
+    "@tarojs/react": "^4.2.0",
+    "@tarojs/runtime": "^4.2.0",
+    "@tarojs/service": "^4.2.0",
+    "@tarojs/shared": "^4.2.0",
+    "@tarojs/taro": "^4.2.0",
+    "@tarojs/webpack5-runner": "^4.2.0",
+    "postcss": "^8.5.10",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "webpack": "^5.76.0"
   },
   "devDependencies": {
+    "@tarojs/cli": "^4.2.0",
+    "@tarojs/plugin-platform-weapp": "^4.2.0",
     "@vitejs/plugin-react": "^4.3.4",
     "vite": "^8.0.4"
   }

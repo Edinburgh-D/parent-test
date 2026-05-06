@@ -1,8 +1,8 @@
 {
-  "miniprogramRoot": "./",
-  "projectname": "taro-parents-test",
+  "miniprogramRoot": "dist/",
+  "projectname": "parents-test",
   "description": "父母成长等级测试",
-  "appid": "wxf2f46b6e4545d20c",
+  "appid": "touristappid",
   "setting": {
     "urlCheck": true,
     "es6": false,
@@ -39,20 +39,10 @@
     "disableUseStrict": false,
     "minifyWXML": true,
     "showES6CompileOption": false,
-    "useCompilerPlugins": false,
-    "compileWorklet": false,
-    "localPlugins": false,
-    "condition": false,
-    "swc": false,
-    "disableSWC": true
+    "useCompilerPlugins": false
   },
   "compileType": "miniprogram",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
-  "condition": {},
-  "packOptions": {
-    "ignore": [],
-    "include": []
-  },
-  "editorSetting": {}
+  "condition": {}
 }
