@@ -1,0 +1,359 @@
+/* 结果页样式 - 三屏结构 */
+
+.result-page {
+  min-height: 100vh;
+  background-color: #F5F0EB;
+  position: relative;
+}
+
+/* 分页指示器 */
+.pagination {
+  position: absolute;
+  top: 20rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 16rpx;
+  z-index: 10;
+}
+
+.dot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background: #E5E5E5;
+  transition: background 0.3s ease;
+}
+
+.dot.active {
+  background: #D4A574;
+}
+
+/* 屏幕通用 */
+.screen {
+  min-height: 100vh;
+  padding: 80rpx 40rpx 60rpx;
+  box-sizing: border-box;
+}
+
+/* ===== 第一屏：首屏冲击 ===== */
+.screen-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-illustration {
+  width: 100%;
+  height: 360rpx;
+  background: linear-gradient(135deg, #F5E6D3 0%, #E8D4C0 100%);
+  border-radius: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 48rpx;
+}
+
+.illus-label {
+  font-size: 28rpx;
+  color: #D4A574;
+}
+
+.result-label {
+  font-size: 28rpx;
+  color: #999999;
+  margin-bottom: 16rpx;
+  display: block;
+}
+
+.profile-name {
+  font-size: 72rpx;
+  font-weight: 700;
+  line-height: 1.2;
+  display: block;
+}
+
+.golden-quote {
+  font-size: 32rpx;
+  color: #666666;
+  margin-top: 32rpx;
+  line-height: 1.5;
+  display: block;
+}
+
+.next-btn {
+  margin-top: 64rpx;
+  padding: 24rpx 48rpx;
+  background: #FFFFFF;
+  border: 2rpx solid #D4A574;
+  border-radius: 44rpx;
+}
+
+.next-text {
+  font-size: 30rpx;
+  color: #D4A574;
+  font-weight: 500;
+}
+
+/* ===== 第二屏：四维度解析 ===== */
+.screen-2 {
+  padding-top: 80rpx;
+}
+
+.section-title {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #1A1A1A;
+  margin-bottom: 32rpx;
+  display: block;
+}
+
+.dimension-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+  margin-bottom: 48rpx;
+}
+
+.dimension-row {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+}
+
+.dim-label {
+  font-size: 28rpx;
+  color: #1A1A1A;
+  width: 140rpx;
+  flex-shrink: 0;
+}
+
+.dim-bar-wrap {
+  flex: 1;
+  height: 16rpx;
+  background: #E5E5E5;
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+
+.dim-bar {
+  height: 100%;
+  border-radius: 8rpx;
+  transition: width 0.5s ease;
+}
+
+.dim-count {
+  font-size: 24rpx;
+  color: #999999;
+  width: 80rpx;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.radar-placeholder {
+  width: 100%;
+  height: 400rpx;
+  background: #FFFFFF;
+  border-radius: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 48rpx;
+  box-shadow: 0 4rpx 24rpx rgba(0, 0, 0, 0.04);
+}
+
+.radar-label {
+  font-size: 28rpx;
+  color: #D4A574;
+}
+
+.divider {
+  height: 2rpx;
+  background: #E5E5E5;
+  margin: 48rpx 0;
+}
+
+.desc-text {
+  font-size: 30rpx;
+  color: #1A1A1A;
+  line-height: 1.6;
+  display: block;
+}
+
+.risk-block {
+  margin-top: 32rpx;
+  padding: 32rpx;
+  background: rgba(231, 76, 60, 0.05);
+  border-radius: 24rpx;
+  border-left: 6rpx solid #E74C3C;
+}
+
+.risk-label {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #E74C3C;
+  margin-bottom: 12rpx;
+  display: block;
+}
+
+.risk-text {
+  font-size: 28rpx;
+  color: #1A1A1A;
+  line-height: 1.6;
+  display: block;
+}
+
+.suggestion-block {
+  margin-top: 32rpx;
+  padding: 32rpx;
+  background: rgba(212, 165, 116, 0.1);
+  border-radius: 24rpx;
+  border-left: 6rpx solid #D4A574;
+}
+
+.suggestion-label {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #D4A574;
+  margin-bottom: 12rpx;
+  display: block;
+}
+
+.suggestion-text {
+  font-size: 28rpx;
+  color: #1A1A1A;
+  line-height: 1.6;
+  display: block;
+}
+
+/* ===== 第三屏：行动引导 ===== */
+.screen-3 {
+  padding-top: 80rpx;
+}
+
+.course-card {
+  background: #FFFFFF;
+  border-radius: 40rpx;
+  padding: 32rpx;
+  margin-bottom: 48rpx;
+  box-shadow: 0 4rpx 24rpx rgba(0, 0, 0, 0.04);
+}
+
+.course-cover {
+  width: 100%;
+  height: 320rpx;
+  background: linear-gradient(135deg, #E8D4C0 0%, #D4A574 100%);
+  border-radius: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24rpx;
+}
+
+.cover-label {
+  font-size: 28rpx;
+  color: #FFFFFF;
+}
+
+.course-title {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #1A1A1A;
+  display: block;
+  margin-bottom: 16rpx;
+}
+
+.course-tag {
+  display: inline-block;
+  padding: 8rpx 20rpx;
+  border-radius: 16rpx;
+  margin-bottom: 16rpx;
+}
+
+.tag-text {
+  font-size: 24rpx;
+  color: #FFFFFF;
+  font-weight: 500;
+}
+
+.stars {
+  font-size: 28rpx;
+  color: #D4A574;
+  margin-bottom: 24rpx;
+}
+
+.try-btn {
+  padding: 20rpx 0;
+  background: #FFFFFF;
+  border: 2rpx solid #D4A574;
+  border-radius: 44rpx;
+  text-align: center;
+}
+
+.try-text {
+  font-size: 30rpx;
+  color: #D4A574;
+  font-weight: 500;
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+}
+
+.action-btn {
+  padding: 28rpx 0;
+  border-radius: 56rpx;
+  text-align: center;
+}
+
+.action-btn.primary {
+  background: #D4A574;
+  box-shadow: 0 8rpx 32rpx rgba(212, 165, 116, 0.3);
+}
+
+.action-btn.secondary {
+  background: #FFFFFF;
+  border: 2rpx solid #D4A574;
+}
+
+.btn-txt {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.action-btn.secondary .btn-txt {
+  color: #D4A574;
+}
+
+.retest-link {
+  font-size: 28rpx;
+  color: #999999;
+  text-align: center;
+  margin-top: 16rpx;
+}
+
+.hook-section {
+  margin-top: 64rpx;
+  text-align: center;
+  padding: 32rpx;
+  background: rgba(159, 188, 159, 0.1);
+  border-radius: 24rpx;
+}
+
+.hook-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #6B8E8B;
+  display: block;
+  margin-bottom: 8rpx;
+}
+
+.hook-desc {
+  font-size: 26rpx;
+  color: #666666;
+}

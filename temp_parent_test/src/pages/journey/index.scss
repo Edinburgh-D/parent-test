@@ -1,0 +1,135 @@
+/* 心路历程页样式 */
+
+.journey-page {
+  min-height: 100vh;
+  background-color: #F5F0EB;
+  padding: 0 40rpx 60rpx;
+  box-sizing: border-box;
+}
+
+.header {
+  padding-top: 60rpx;
+  margin-bottom: 48rpx;
+}
+
+.header-title {
+  font-size: 56rpx;
+  font-weight: 700;
+  color: #1A1A1A;
+  display: block;
+  line-height: 1.3;
+}
+
+.header-sub {
+  font-size: 32rpx;
+  color: #666666;
+  margin-top: 16rpx;
+  display: block;
+  line-height: 1.5;
+}
+
+.actions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+}
+
+.action-card {
+  background: #FFFFFF;
+  border-radius: 40rpx;
+  padding: 36rpx;
+  display: flex;
+  align-items: center;
+  gap: 24rpx;
+  box-shadow: 0 4rpx 24rpx rgba(0, 0, 0, 0.04);
+}
+
+.action-num {
+  width: 64rpx;
+  height: 64rpx;
+  background: #8FBC8F;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.num-text {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.action-text {
+  flex: 1;
+}
+
+.action-title {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #1A1A1A;
+  display: block;
+  line-height: 1.4;
+}
+
+.action-desc {
+  font-size: 28rpx;
+  color: #666666;
+  margin-top: 8rpx;
+  display: block;
+  line-height: 1.5;
+}
+
+.action-arrow {
+  font-size: 40rpx;
+  color: #8FBC8F;
+  flex-shrink: 0;
+}
+
+.divider {
+  height: 2rpx;
+  background: #E5E5E5;
+  margin: 48rpx 0;
+}
+
+.tips-section {
+  background: rgba(143, 188, 143, 0.1);
+  border-radius: 32rpx;
+  padding: 40rpx;
+  margin-bottom: 40rpx;
+}
+
+.tips-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #6B8E8B;
+  display: block;
+  margin-bottom: 16rpx;
+}
+
+.tips-content {
+  font-size: 30rpx;
+  color: #1A1A1A;
+  line-height: 1.6;
+  display: block;
+}
+
+.remind-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32rpx 40rpx;
+  background: #FFFFFF;
+  border-radius: 32rpx;
+  box-shadow: 0 4rpx 24rpx rgba(0, 0, 0, 0.04);
+}
+
+.remind-text {
+  font-size: 32rpx;
+  color: #1A1A1A;
+}
+
+.remind-switch {
+  transform: scale(0.9);
+}

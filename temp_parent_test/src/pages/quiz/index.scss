@@ -1,0 +1,139 @@
+/* 答题页样式 */
+.quiz-page {
+  min-height: 100vh;
+  background-color: #F5F0EB;
+  padding-bottom: 40rpx;
+  box-sizing: border-box;
+}
+
+.nav-bar {
+  height: 88rpx;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32rpx;
+  border-bottom: 2rpx solid #E5E5E5;
+}
+
+.nav-back {
+  width: 60rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-icon {
+  font-size: 40rpx;
+  color: #1A1A1A;
+}
+
+.nav-title {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #1A1A1A;
+}
+
+.nav-placeholder {
+  width: 60rpx;
+}
+
+.progress-section {
+  padding: 24rpx 40rpx;
+}
+
+.progress-track {
+  height: 8rpx;
+  background: #E5E5E5;
+  border-radius: 4rpx;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #FF8C42;
+  border-radius: 4rpx;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-size: 24rpx;
+  color: #999999;
+  margin-top: 12rpx;
+  display: block;
+}
+
+.scene-card {
+  margin: 24rpx 40rpx 32rpx;
+  background: #FFFFFF;
+  border-radius: 40rpx;
+  padding: 40rpx;
+  box-shadow: 0 4rpx 24rpx rgba(0, 0, 0, 0.04);
+}
+
+.scene-text {
+  font-size: 32rpx;
+  color: #1A1A1A;
+  line-height: 1.8;
+  display: block;
+}
+
+.options-section {
+  padding: 0 40rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+}
+
+.option-row {
+  background: #FFFFFF;
+  border-radius: 24rpx;
+  padding: 32rpx;
+  display: flex;
+  align-items: flex-start;
+  gap: 24rpx;
+  border: 2rpx solid transparent;
+  transition: all 0.2s ease;
+}
+
+.option-row.selected {
+  background: rgba(255, 140, 66, 0.1);
+  border-color: #FF8C42;
+}
+
+.option-label {
+  width: 56rpx;
+  height: 56rpx;
+  background: #FF8C42;
+  border-radius: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 4rpx;
+}
+
+.label-text {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.option-text {
+  font-size: 30rpx;
+  color: #1A1A1A;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.footer-hint {
+  text-align: center;
+  margin-top: 48rpx;
+  padding-bottom: 40rpx;
+}
+
+.hint-text {
+  font-size: 24rpx;
+  color: #999999;
+}
