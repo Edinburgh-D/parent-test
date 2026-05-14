@@ -1,0 +1,159 @@
+$bg-color: #F5F0EB;
+$primary: #FF8C42;
+$primary-light: #FFB366;
+$text-primary: #1A1A1A;
+$text-secondary: #666666;
+$text-light: #999999;
+$card-bg: #FFFFFF;
+$border-color: #E5E5E5;
+
+.info-page {
+  min-height: 100vh;
+  background-color: $bg-color;
+  padding: 48px 20px 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+// 头部标题
+.header {
+  margin-bottom: 32px;
+
+  .title {
+    font-size: 24px;
+    font-weight: 700;
+    color: $text-primary;
+    line-height: 1.3;
+    display: block;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    color: $text-light;
+    margin-top: 8px;
+    display: block;
+  }
+}
+
+// 问题卡片
+.question-card {
+  background: $card-bg;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+.question-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+
+  .question-badge {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: $primary-light;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    flex-shrink: 0;
+  }
+
+  .question-text {
+    font-size: 17px;
+    font-weight: 600;
+    color: $text-primary;
+  }
+}
+
+// 胶囊按钮
+.options-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.capsule-btn {
+  height: 44px;
+  padding: 0 20px;
+  border-radius: 22px;
+  background: $card-bg;
+  border: 1px solid $border-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+
+  &:active {
+    transform: scale(1.05);
+  }
+
+  &.active {
+    background: $primary-light;
+    border-color: $primary-light;
+
+    .capsule-text {
+      color: #FFFFFF;
+    }
+  }
+
+  .capsule-text {
+    font-size: 15px;
+    color: $text-secondary;
+  }
+}
+
+// 操作区域
+.action-section {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.btn-start {
+  width: 100%;
+  height: 52px;
+  border-radius: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+
+  &.enabled {
+    background: $primary-light;
+    box-shadow: 0 4px 16px rgba(255, 179, 102, 0.3);
+
+    &:active {
+      transform: scale(0.97);
+    }
+
+    .btn-text {
+      color: #FFFFFF;
+    }
+  }
+
+  &.disabled {
+    background: $border-color;
+
+    .btn-text {
+      color: $text-light;
+    }
+  }
+
+  .btn-text {
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
+
+.btn-skip {
+  font-size: 14px;
+  color: $text-light;
+}
