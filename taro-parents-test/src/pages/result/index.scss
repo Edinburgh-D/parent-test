@@ -1,199 +1,293 @@
-.result {
-  padding: 24px 20px 32px;
-  background: linear-gradient(180deg, #f8f9ff 0%, #ffffff 100%);
+$bg-color: #F5F0EB;
+$primary: #FF8C42;
+$gold: #D4A574;
+$text-primary: #1A1A1A;
+$text-secondary: #666666;
+$text-light: #999999;
+$card-bg: #FFFFFF;
+$border-color: #E5E5E5;
+$result-accent: #D4A574;
+
+.result-page {
   min-height: 100vh;
-}
-
-.result-top {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.result-badge {
-  display: inline-block;
-  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-  color: #fff;
-  font-size: 12px;
-  font-weight: 600;
-  padding: 6px 16px;
-  border-radius: 20px;
-  margin-bottom: 16px;
-}
-
-.result-type {
-  font-size: 32px;
-  font-weight: 800;
-  color: #1e1b4b;
-  margin-bottom: 8px;
-  display: block;
-}
-
-.result-subtitle {
-  font-size: 14px;
-  color: #6b7280;
-  display: block;
-}
-
-.result-card {
-  background: #fff;
-  border-radius: 20px;
-  padding: 24px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-  margin-bottom: 16px;
-}
-
-.result-section-title {
-  font-size: 15px;
-  font-weight: 700;
-  color: #1e1b4b;
-  margin-bottom: 16px;
-  display: block;
-}
-
-.result-desc {
-  font-size: 14px;
-  line-height: 1.8;
-  color: #4b5563;
-  display: block;
-}
-
-.result-tip {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-  border-radius: 16px;
-  padding: 20px;
-  margin-bottom: 16px;
-}
-
-.result-tip-title {
-  font-size: 14px;
-  font-weight: 700;
-  color: #92400e;
-  margin-bottom: 8px;
-  display: block;
-}
-
-.result-tip-text {
-  font-size: 14px;
-  color: #78350f;
-  line-height: 1.7;
-  display: block;
-}
-
-.result-course {
-  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
-  border-radius: 16px;
-  padding: 20px;
-  margin-bottom: 20px;
-}
-
-.result-course-title {
-  font-size: 14px;
-  font-weight: 700;
-  color: #065f46;
-  margin-bottom: 6px;
-  display: block;
-}
-
-.result-course-text {
-  font-size: 14px;
-  color: #047857;
-  display: block;
-}
-
-.score-bars {
+  background-color: $bg-color;
+  padding: 0 20px 32px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
-}
-
-.score-bar-item {
-  display: flex;
   align-items: center;
-  gap: 12px;
 }
 
-.score-bar-label {
-  font-size: 13px;
-  color: #6b7280;
-  width: 52px;
-  text-align: right;
-  flex-shrink: 0;
-}
-
-.score-bar-track {
-  flex: 1;
-  height: 10px;
-  background: #f3f4f6;
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-.score-bar-fill {
-  height: 100%;
-  border-radius: 5px;
-  transition: width 0.8s ease;
-}
-
-.score-bar-fill.control { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
-.score-bar-fill.empathy { background: linear-gradient(90deg, #4f46e5, #7c3aed); }
-.score-bar-fill.freedom { background: linear-gradient(90deg, #10b981, #34d399); }
-
-.score-bar-value {
-  font-size: 13px;
-  font-weight: 600;
-  color: #374151;
-  width: 24px;
-  text-align: left;
-  flex-shrink: 0;
-}
-
-.result-actions {
+// 屏幕通用
+.screen {
+  width: 100%;
+  min-height: calc(100vh - 80px);
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  align-items: center;
+  padding-top: 20px;
 }
 
-.btn-primary {
-  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-  color: #fff;
-  padding: 16px 28px;
-  width: 100%;
-  border-radius: 14px;
-  font-size: 16px;
-  font-weight: 600;
-  border: none;
-  box-shadow: 0 4px 16px rgba(79, 70, 229, 0.3);
+// 第一屏
+.screen-1 {
+  .hero-section {
+    width: 100%;
+    height: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .hero-illustration {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .result-label {
+    font-size: 14px;
+    color: $text-light;
+    margin-top: 16px;
+  }
+
+  .profile-name {
+    font-size: 36px;
+    font-weight: 700;
+    color: $result-accent;
+    margin-top: 8px;
+    text-align: center;
+  }
+
+  .profile-quote {
+    font-size: 18px;
+    color: $text-secondary;
+    margin-top: 12px;
+    text-align: center;
+    line-height: 1.5;
+    padding: 0 20px;
+  }
+
+  .scroll-hint {
+    margin-top: 40px;
+    padding: 12px 24px;
+    border-radius: 22px;
+    border: 1px solid $result-accent;
+    background: $card-bg;
+
+    .scroll-text {
+      font-size: 15px;
+      color: $result-accent;
+    }
+  }
 }
 
-.btn-primary::after {
-  border: none;
+// 第二屏
+.screen-2 {
+  align-items: flex-start;
+
+  .section-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: $text-primary;
+    margin-bottom: 20px;
+  }
+
+  .scores-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .score-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .score-label {
+      font-size: 14px;
+      color: $text-primary;
+      width: 80px;
+      flex-shrink: 0;
+    }
+
+    .score-track {
+      flex: 1;
+      height: 8px;
+      background: $border-color;
+      border-radius: 4px;
+      overflow: hidden;
+
+      .score-fill {
+        height: 100%;
+        border-radius: 4px;
+        transition: width 0.5s ease;
+      }
+    }
+
+    .score-value {
+      font-size: 13px;
+      color: $text-light;
+      width: 40px;
+      text-align: right;
+    }
+  }
+
+  .content-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .content-block {
+    .content-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: $text-light;
+      margin-bottom: 8px;
+      display: block;
+
+      &.risk {
+        color: #E74C3C;
+      }
+    }
+
+    .content-text {
+      font-size: 16px;
+      color: $text-primary;
+      line-height: 1.6;
+    }
+  }
+
+  .scroll-hint {
+    margin-top: 32px;
+    align-self: center;
+    padding: 12px 24px;
+    border-radius: 22px;
+    border: 1px solid $result-accent;
+    background: $card-bg;
+
+    .scroll-text {
+      font-size: 15px;
+      color: $result-accent;
+    }
+  }
 }
 
-.btn-secondary {
-  background: #fff;
-  color: #4f46e5;
-  padding: 14px 28px;
-  width: 100%;
-  border-radius: 14px;
-  font-size: 16px;
-  font-weight: 600;
-  border: 1.5px solid #e0e7ff;
+// 第三屏
+.screen-3 {
+  .course-card {
+    width: 100%;
+    background: $card-bg;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    margin-bottom: 24px;
+
+    .course-title {
+      font-size: 17px;
+      font-weight: 600;
+      color: $text-primary;
+      margin-bottom: 8px;
+    }
+
+    .course-name {
+      font-size: 15px;
+      color: $text-secondary;
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
+    .course-btn {
+      width: 100%;
+      height: 44px;
+      background: #6B8E8B;
+      border-radius: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .course-btn-text {
+        font-size: 16px;
+        color: #FFFFFF;
+      }
+    }
+  }
+
+  .action-buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .btn-primary {
+    width: 100%;
+    height: 52px;
+    background: $result-accent;
+    border-radius: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(212, 165, 116, 0.3);
+
+    &:active {
+      transform: scale(0.97);
+    }
+
+    .btn-text {
+      font-size: 17px;
+      font-weight: 600;
+      color: #FFFFFF;
+    }
+  }
+
+  .btn-secondary {
+    width: 100%;
+    height: 52px;
+    background: $card-bg;
+    border-radius: 28px;
+    border: 1px solid $result-accent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .btn-text {
+      font-size: 17px;
+      font-weight: 600;
+      color: $result-accent;
+    }
+  }
+
+  .btn-text-link {
+    text-align: center;
+    padding: 12px;
+
+    .btn-text {
+      font-size: 14px;
+      color: $text-light;
+    }
+  }
 }
 
-.btn-secondary::after {
-  border: none;
-}
+// 分页指示器
+.pagination {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
 
-.btn-ghost {
-  background: transparent;
-  color: #6b7280;
-  padding: 12px 24px;
-  width: 100%;
-  font-size: 14px;
-  font-weight: 500;
-  border: none;
-}
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: $border-color;
 
-.btn-ghost::after {
-  border: none;
+    &.active {
+      background: $result-accent;
+    }
+  }
 }
