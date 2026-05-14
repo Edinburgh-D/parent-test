@@ -1,0 +1,151 @@
+$bg-color: #F5F0EB;
+$purple: #9B7EBD;
+$text-primary: #1A1A1A;
+$text-secondary: #666666;
+$text-light: #999999;
+$card-bg: #FFFFFF;
+$border-color: #E5E5E5;
+
+.history-page {
+  min-height: 100vh;
+  background-color: $bg-color;
+  padding: 44px 20px 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+// 头部
+.header {
+  margin-bottom: 24px;
+
+  .title {
+    font-size: 20px;
+    font-weight: 600;
+    color: $text-primary;
+  }
+}
+
+// 记录列表
+.records-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.record-card {
+  background: $card-bg;
+  border-radius: 20px;
+  display: flex;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+
+  .record-accent {
+    width: 4px;
+    background: $purple;
+    flex-shrink: 0;
+  }
+
+  .record-content {
+    flex: 1;
+    padding: 16px;
+
+    .record-date {
+      font-size: 13px;
+      color: $text-light;
+      display: block;
+    }
+
+    .record-profile {
+      font-size: 20px;
+      font-weight: 600;
+      color: $purple;
+      margin-top: 4px;
+      display: block;
+    }
+
+    .record-dims {
+      font-size: 13px;
+      color: $text-light;
+      margin-top: 4px;
+      display: block;
+    }
+
+    .record-tags {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+
+      .record-tag {
+        font-size: 12px;
+        color: $text-light;
+        background: $bg-color;
+        padding: 2px 8px;
+        border-radius: 4px;
+      }
+    }
+
+    .record-link {
+      font-size: 13px;
+      color: $purple;
+      margin-top: 8px;
+      display: block;
+    }
+  }
+}
+
+// 空状态
+.empty-state {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+
+  .empty-text {
+    font-size: 16px;
+    color: $text-secondary;
+    text-align: center;
+  }
+
+  .empty-btn {
+    margin-top: 24px;
+    padding: 12px 32px;
+    border-radius: 24px;
+    border: 2px dashed $purple;
+    background: $card-bg;
+
+    .btn-text {
+      font-size: 16px;
+      color: $purple;
+      font-weight: 600;
+    }
+  }
+}
+
+// 新测试按钮
+.new-test-btn {
+  margin-top: 24px;
+  width: 100%;
+  height: 52px;
+  border-radius: 28px;
+  border: 2px dashed $purple;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $card-bg;
+
+  .btn-text {
+    font-size: 16px;
+    color: $purple;
+    font-weight: 600;
+  }
+}
+
+// 清空链接
+.clear-link {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 14px;
+  color: #E74C3C;
+}
