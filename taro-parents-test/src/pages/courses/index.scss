@@ -1,116 +1,137 @@
-.courses {
-  padding: 16px 20px 32px;
-  background: linear-gradient(180deg, #f8f9ff 0%, #ffffff 100%);
+$bg-color: #F5F0EB;
+$blue: #6B8E8B;
+$text-primary: #1A1A1A;
+$text-secondary: #666666;
+$text-light: #999999;
+$card-bg: #FFFFFF;
+$border-color: #E5E5E5;
+
+.courses-page {
   min-height: 100vh;
-}
-
-.courses-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 8px;
-}
-
-.courses-back {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: #f3f4f6;
-  border: none;
-  color: #374151;
-  font-size: 16px;
-  line-height: 36px;
-  text-align: center;
-  padding: 0;
-}
-
-.courses-back::after {
-  border: none;
-}
-
-.courses-title {
-  font-size: 20px;
-  font-weight: 700;
-  color: #1e1b4b;
-}
-
-.courses-subtitle {
-  font-size: 14px;
-  color: #6b7280;
-  margin-bottom: 20px;
-  display: block;
-}
-
-.course-list {
+  background-color: $bg-color;
+  padding: 44px 20px 32px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
 }
 
-.course-item {
-  background: #fff;
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  border: 1px solid #f3f4f6;
+// 头部
+.header {
+  margin-bottom: 24px;
+
+  .title {
+    font-size: 20px;
+    font-weight: 600;
+    color: $text-primary;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    color: $text-secondary;
+    margin-top: 4px;
+    display: block;
+  }
 }
 
-.course-item-header {
+// 课程列表
+.courses-list {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 8px;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.course-item-title {
-  font-size: 15px;
-  font-weight: 700;
-  color: #1e1b4b;
-  line-height: 1.4;
-  flex: 1;
-  padding-right: 8px;
+.course-card {
+  background: $card-bg;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+
+  .course-cover {
+    height: 160px;
+    background: linear-gradient(135deg, #8FB8B4 0%, #6B8E8B 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .cover-placeholder {
+      font-size: 22px;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+  }
+
+  .course-info {
+    padding: 16px;
+
+    .course-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: $text-primary;
+    }
+
+    .course-tags {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+
+      .course-tag {
+        padding: 4px 10px;
+        border-radius: 8px;
+        background: $blue;
+        color: #FFFFFF;
+        font-size: 12px;
+      }
+    }
+
+    .course-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 10px;
+
+      .stars {
+        font-size: 14px;
+        color: #FF8C42;
+      }
+
+      .duration {
+        font-size: 13px;
+        color: $text-light;
+      }
+    }
+
+    .course-desc {
+      font-size: 14px;
+      color: $text-secondary;
+      line-height: 1.5;
+      margin-top: 8px;
+    }
+
+    .course-btn {
+      margin-top: 12px;
+      width: 100%;
+      height: 44px;
+      background: $blue;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .btn-text {
+        font-size: 15px;
+        font-weight: 600;
+        color: #FFFFFF;
+      }
+    }
+  }
 }
 
-.course-tag {
-  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-  color: #92400e;
-  font-size: 11px;
-  font-weight: 600;
-  padding: 4px 10px;
-  border-radius: 10px;
-  flex-shrink: 0;
-}
+// 更多链接
+.more-link {
+  margin-top: 24px;
+  text-align: center;
 
-.course-item-desc {
-  font-size: 13px;
-  color: #6b7280;
-  line-height: 1.6;
-  margin-bottom: 14px;
-  display: block;
-}
-
-.course-item-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.course-price {
-  font-size: 20px;
-  font-weight: 800;
-  color: #ef4444;
-}
-
-.btn-small {
-  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-  color: #fff;
-  padding: 8px 18px;
-  font-size: 13px;
-  border-radius: 10px;
-  border: none;
-  font-weight: 600;
-}
-
-.btn-small::after {
-  border: none;
+  .more-text {
+    font-size: 14px;
+    color: $text-light;
+  }
 }
