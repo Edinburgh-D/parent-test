@@ -57,6 +57,7 @@ export default function ResultPage() {
 
   return (
     <View className='result-page'>
+      {/* 分页指示器 */}
       <View className='pagination'>
         {[0, 1, 2].map(i => (
           <View key={i} className={`dot ${screen === i ? 'active' : ''}`} />
@@ -65,14 +66,28 @@ export default function ResultPage() {
 
       {screen === 0 && (
         <View className='screen screen-1'>
-          <View className='hero-illustration'>
-            <Text className='illus-label'>[水彩插画：父母拥抱孩子]</Text>
+          <View className='nav-bar'>
+            <View className='nav-back' onClick={() => Taro.navigateBack()}>
+              <Text className='back-icon'>←</Text>
+            </View>
+            <Text className='nav-title'>父母成长测试</Text>
+            <View className='nav-placeholder' />
           </View>
-          <Text className='result-label'>测试结果</Text>
+
+          <View className='hero-illustration'>
+            <Text className='illus-label'>[水彩插画：妈妈拥抱孩子在花园]</Text>
+          </View>
+
+          <View className='result-badge'>
+            <Text className='badge-text'>测试结果</Text>
+          </View>
+
           <Text className='profile-name' style={{ color: profile.color }}>
             {profile.title}
           </Text>
+
           <Text className='golden-quote'>"{profile.subtitle}"</Text>
+
           <View className='next-btn' onClick={handleNext}>
             <Text className='next-text'>查看详细分析 ↓</Text>
           </View>
@@ -82,6 +97,7 @@ export default function ResultPage() {
       {screen === 1 && (
         <ScrollView className='screen screen-2' scrollY>
           <Text className='section-title'>📊 你的四维度分布</Text>
+
           <View className='dimension-list'>
             {Object.entries(scores).map(([key, val]) => (
               <View key={key} className='dimension-row'>
@@ -130,6 +146,7 @@ export default function ResultPage() {
       {screen === 2 && (
         <ScrollView className='screen screen-3' scrollY>
           <Text className='section-title'>📚 专属课程推荐</Text>
+
           <View className='course-card'>
             <View className='course-cover'>
               <Text className='cover-label'>[课程封面]</Text>

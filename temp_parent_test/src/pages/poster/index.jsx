@@ -1,6 +1,6 @@
 import Taro from '@tarojs/taro'
 import { View, Text, Button, Canvas } from '@tarojs/components'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import './index.scss'
 
 export default function PosterPage() {
@@ -19,56 +19,71 @@ export default function PosterPage() {
     '这道题我选了A，老公选了D'
   ]
 
+  const scoreLabels = { A: '情绪', B: '规则', C: '探索', D: '行动' }
+  const scoreColors = { A: '#FF8C42', B: '#8FBC8F', C: '#6B8E8B', D: '#9B7EBD' }
+
   useEffect(() => {
     const ctx = Taro.createCanvasContext('posterCanvas')
     const W = 375
     const H = 600
 
-    ctx.setFillStyle('#F5F0EB')
+    // 背景
+    ctx.setFillStyle('#FFFFFF')
     ctx.fillRect(0, 0, W, H)
 
-    ctx.setStrokeStyle('#E5E5E5')
+    // 圆角矩形边框效果
+    ctx.setStrokeStyle('#F0F0F0')
     ctx.setLineWidth(2)
-    ctx.strokeRect(20, 20, W - 40, H - 40)
+    ctx.strokeRect(16, 16, W - 32, H - 32)
 
-    ctx.setFillStyle('#1A1A1A')
-    ctx.setFontSize(16)
-    ctx.setTextAlign('center')
-    ctx.fillText('父母成长等级测试', W / 2, 70)
-
-    ctx.setFillStyle('#D4A574')
-    ctx.setFontSize(32)
-    ctx.fillText(profile.name, W / 2, 130)
-
-    ctx.setFillStyle('#666666')
+    // 标题
+    ctx.setFillStyle('#999999')
     ctx.setFontSize(14)
-    ctx.fillText(`"${profile.quote}"`, W / 2, 180)
+    ctx.setTextAlign('center')
+    ctx.fillText('父母成长等级测试', W / 2, 60)
 
-    const colors = { A: '#FF8C42', B: '#6B8E8B', C: '#8FBC8F', D: '#9B7EBD' }
-    const labels = { A: '情绪', B: '规则', C: '探索', D: '行动' }
-    const positions = [
-      { x: 80, y: 240 },
-      { x: 200, y: 240 },
-      { x: 80, y: 310 },
-      { x: 200, y: 310 }
-    ]
+    // 画像名
+    ctx.setFillStyle('#FF8C42')
+    ctx.setFontSize(36)
+    ctx.fillText(profile.name, W / 2, 120)
+
+    // 金句
+    ctx.setFillStyle('#666666')
+    ctx.setFontSize(13)
+    ctx.fillText(`"${profile.quote}"`, W / 2, 170)
+
+    // 四维度方块 2x2
+    const sqSize = 80
+    const gap = 16
+    const startX = (W - sqSize * 2 - gap) / 2
+    const startY = 220
 
     Object.entries(profile.scores).forEach(([key, val], idx) => {
-      const pos = positions[idx]
-      ctx.setFillStyle(colors[key])
-      ctx.fillRect(pos.x, pos.y, 90, 50)
+      const row = Math.floor(idx / 2)
+      const col = idx % 2
+      const x = startX + col * (sqSize + gap)
+      const y = startY + row * (sqSize + gap)
+
+      ctx.setFillStyle(scoreColors[key])
+      ctx.fillRect(x, y, sqSize, sqSize)
+
       ctx.setFillStyle('#FFFFFF')
-      ctx.setFontSize(12)
-      ctx.fillText(`${labels[key]} ${val}`, pos.x + 45, pos.y + 30)
+      ctx.setFontSize(14)
+      ctx.fillText(scoreLabels[key], x + sqSize / 2, y + sqSize / 2 - 6)
+      ctx.setFontSize(20)
+      ctx.fillText(String(val), x + sqSize / 2, y + sqSize / 2 + 16)
     })
 
-    ctx.setFillStyle('#FFFFFF')
-    ctx.fillRect((W - 120) / 2, 400, 120, 120)
-    ctx.setStrokeStyle('#E5E5E5')
-    ctx.strokeRect((W - 120) / 2, 400, 120, 120)
+    // 扫码提示
     ctx.setFillStyle('#999999')
-    ctx.setFontSize(10)
-    ctx.fillText('扫码测测你的育儿风格', W / 2, 540)
+    ctx.setFontSize(12)
+    ctx.fillText('扫码测测你的育儿风格', W / 2, 430)
+
+    // 二维码占位
+    ctx.setFillStyle('#F5F5F5')
+    ctx.fillRect((W - 100) / 2, 450, 100, 100)
+    ctx.setStrokeStyle('#E5E5E5')
+    ctx.strokeRect((W - 100) / 2, 450, 100, 100)
 
     ctx.draw()
   }, [])
@@ -101,6 +116,10 @@ export default function PosterPage() {
 
   return (
     <View className='poster-page'>
+      <View className='page-title'>
+        <Text className='title-text'>生成我的育儿海报</Text>
+      </View>
+
       <View className='poster-preview'>
         <Canvas canvasId='posterCanvas' className='poster-canvas' style={{ width: '375px', height: '600px' }} />
       </View>

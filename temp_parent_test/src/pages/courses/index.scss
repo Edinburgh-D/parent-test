@@ -1,19 +1,28 @@
-/* 课程推荐页样式 */
+/* 课程推荐页样式 - 基于设计图更新 */
 
 .courses-page {
   min-height: 100vh;
   background-color: #F5F0EB;
 }
 
+/* 顶部区域 */
+.header-section {
+  padding: 0 32rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.header-text {
+  flex: 1;
+}
+
 /* 导航栏 */
 .nav-bar {
   height: 88rpx;
-  background: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 32rpx;
-  border-bottom: 2rpx solid #E5E5E5;
 }
 
 .nav-back {
@@ -26,13 +35,13 @@
 
 .back-icon {
   font-size: 40rpx;
-  color: #1A1A1A;
+  color: #3D3D3D;
 }
 
 .nav-title {
-  font-size: 36rpx;
+  font-size: 34rpx;
   font-weight: 600;
-  color: #1A1A1A;
+  color: #3D3D3D;
 }
 
 .nav-placeholder {
@@ -41,91 +50,173 @@
 
 /* 子标题 */
 .sub-header {
-  padding: 24rpx 40rpx;
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+  margin-bottom: 24rpx;
+}
+
+.sub-icon {
+  font-size: 24rpx;
+  color: #8FBC8F;
 }
 
 .sub-text {
-  font-size: 28rpx;
-  color: #666666;
+  font-size: 26rpx;
+  color: #999999;
+}
+
+.header-illustration {
+  width: 180rpx;
+  height: 180rpx;
+  background: linear-gradient(135deg, #FFE4D0 0%, #FFD4B8 100%);
+  border-radius: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-left: 20rpx;
+}
+
+.illus-label {
+  font-size: 22rpx;
+  color: #D4A574;
 }
 
 /* 课程列表 */
 .course-list {
-  padding: 0 40rpx 60rpx;
+  padding: 0 32rpx 40rpx;
 }
 
 .course-card {
   background: #FFFFFF;
   border-radius: 40rpx;
-  padding: 32rpx;
+  padding: 24rpx;
   margin-bottom: 32rpx;
+  display: flex;
+  gap: 24rpx;
   box-shadow: 0 4rpx 24rpx rgba(0, 0, 0, 0.04);
 }
 
 .course-cover {
-  width: 100%;
-  height: 320rpx;
+  width: 220rpx;
+  height: 280rpx;
   background: linear-gradient(135deg, #E8D4C0 0%, #D4A574 100%);
   border-radius: 24rpx;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 24rpx;
+  position: relative;
+  flex-shrink: 0;
 }
 
 .cover-label {
-  font-size: 28rpx;
+  font-size: 22rpx;
   color: #FFFFFF;
+  text-align: center;
+  padding: 16rpx;
+}
+
+.play-btn {
+  position: absolute;
+  bottom: 16rpx;
+  left: 16rpx;
+  width: 48rpx;
+  height: 48rpx;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.play-icon {
+  font-size: 20rpx;
+  color: #6B8E8B;
+  margin-left: 4rpx;
+}
+
+.course-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .course-title {
-  font-size: 36rpx;
+  font-size: 34rpx;
   font-weight: 600;
-  color: #1A1A1A;
+  color: #3D3D3D;
   display: block;
-  margin-bottom: 16rpx;
+  margin-bottom: 12rpx;
 }
 
 .course-tag {
   display: inline-block;
-  padding: 8rpx 20rpx;
-  border-radius: 16rpx;
-  margin-bottom: 16rpx;
+  padding: 6rpx 16rpx;
+  border-radius: 12rpx;
+  margin-bottom: 12rpx;
+  align-self: flex-start;
 }
 
 .tag-text {
-  font-size: 24rpx;
+  font-size: 22rpx;
   color: #FFFFFF;
   font-weight: 500;
 }
 
+.course-desc {
+  font-size: 26rpx;
+  color: #666666;
+  line-height: 1.5;
+  margin-bottom: 12rpx;
+  display: block;
+}
+
 .course-meta {
-  font-size: 28rpx;
+  font-size: 26rpx;
   color: #D4A574;
-  margin-bottom: 24rpx;
+  margin-bottom: 16rpx;
   display: block;
 }
 
 .try-btn {
-  padding: 20rpx 0;
+  padding: 16rpx 0;
   background: #FFFFFF;
-  border: 2rpx solid #D4A574;
-  border-radius: 44rpx;
+  border: 2rpx solid #6B8E8B;
+  border-radius: 40rpx;
   text-align: center;
+  align-self: flex-start;
+  padding-left: 48rpx;
+  padding-right: 48rpx;
 }
 
 .try-text {
-  font-size: 30rpx;
-  color: #D4A574;
+  font-size: 28rpx;
+  color: #6B8E8B;
   font-weight: 500;
 }
 
 .more-link {
   text-align: center;
-  padding: 32rpx 0;
+  padding: 24rpx 0;
+  margin-top: 16rpx;
 }
 
 .more-text {
   font-size: 30rpx;
+  color: #6B8E8B;
+}
+
+/* 底部装饰 */
+.bottom-deco {
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deco-label {
+  font-size: 24rpx;
   color: #D4A574;
 }

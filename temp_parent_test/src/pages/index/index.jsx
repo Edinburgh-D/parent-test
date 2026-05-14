@@ -15,45 +15,47 @@ export default function IndexPage() {
     Taro.navigateTo({ url: '/pages/courses/index' })
   }
 
-  const features = [
-    { icon: '📊', title: '科学测评', desc: '4维度解析你的育儿风格' },
-    { icon: '🎯', title: '16种画像', desc: '千人千面，不是贴标签' },
-    { icon: '📚', title: '专属建议', desc: '基于你的风格给出成长方向' }
-  ]
-
   return (
     <View className='home-page'>
+      {/* 顶部插画区 */}
       <View className='hero-section'>
-        <View className='illustration-placeholder'>
-          <Text className='illustration-label'>[水彩插画：父母牵手孩子]</Text>
+        <View className='hero-illustration'>
+          <Text className='illustration-label'>[水彩插画：妈妈牵着孩子散步]</Text>
         </View>
       </View>
 
+      {/* 标题区 */}
       <View className='title-section'>
         <Text className='main-title'>父母成长等级测试</Text>
-        <Text className='sub-title'>28道场景题，看懂你的育儿方式</Text>
+        <Text className='sub-title'>了解自己，成为更好的父母 ❤️</Text>
       </View>
 
+      {/* 三列功能卡片 */}
       <View className='features-section'>
-        {features.map((item, idx) => (
-          <View key={idx} className='feature-card'>
-            <View className='feature-icon-wrap'>
-              <Text className='feature-icon'>{item.icon}</Text>
-            </View>
-            <View className='feature-text'>
-              <Text className='feature-title'>{item.title}</Text>
-              <Text className='feature-desc'>{item.desc}</Text>
-            </View>
+        <View className='feature-card'>
+          <View className='feature-icon-wrap'>
+            <Text className='feature-icon'>📋</Text>
           </View>
-        ))}
+          <Text className='feature-title'>科学测评</Text>
+          <Text className='feature-desc'>专业量表设计{'\n'}全面评估父母成长状态</Text>
+        </View>
+        <View className='feature-card'>
+          <View className='feature-icon-wrap'>
+            <Text className='feature-icon'>📊</Text>
+          </View>
+          <Text className='feature-title'>精准定位</Text>
+          <Text className='feature-desc'>多维度分析：认知、情绪、{'\n'}行为等全面解读</Text>
+        </View>
+        <View className='feature-card'>
+          <View className='feature-icon-wrap'>
+            <Text className='feature-icon'>❤️</Text>
+          </View>
+          <Text className='feature-title'>成长建议</Text>
+          <Text className='feature-desc'>个性化成长建议{'\n'}助力成为更好的父母</Text>
+        </View>
       </View>
 
-      <View className='divider' />
-
-      <View className='social-proof'>
-        <Text className='proof-text'>已有 12,847 位家长完成测试</Text>
-      </View>
-
+      {/* CTA按钮 */}
       <View className='action-section'>
         <Button
           className={`start-btn ${pressed ? 'pressed' : ''}`}
@@ -64,6 +66,11 @@ export default function IndexPage() {
           <Text className='btn-text'>开始测试</Text>
         </Button>
         <Text className='browse-link' onClick={handleBrowse}>暂不测试，随便逛逛</Text>
+      </View>
+
+      {/* 底部装饰 */}
+      <View className='bottom-decoration'>
+        <Text className='deco-label'>[水彩植物装饰]</Text>
       </View>
     </View>
   )

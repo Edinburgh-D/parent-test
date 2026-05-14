@@ -1,19 +1,20 @@
-/* 答题页样式 */
+/* 答题页样式 - 基于设计图更新 */
 .quiz-page {
   min-height: 100vh;
   background-color: #F5F0EB;
   padding-bottom: 40rpx;
   box-sizing: border-box;
+  position: relative;
 }
 
+/* 导航栏 */
 .nav-bar {
   height: 88rpx;
-  background: #FFFFFF;
+  background: #F5F0EB;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 32rpx;
-  border-bottom: 2rpx solid #E5E5E5;
 }
 
 .nav-back {
@@ -26,34 +27,35 @@
 
 .back-icon {
   font-size: 40rpx;
-  color: #1A1A1A;
+  color: #3D3D3D;
 }
 
 .nav-title {
-  font-size: 36rpx;
+  font-size: 34rpx;
   font-weight: 600;
-  color: #1A1A1A;
+  color: #3D3D3D;
 }
 
 .nav-placeholder {
   width: 60rpx;
 }
 
+/* 进度区 */
 .progress-section {
-  padding: 24rpx 40rpx;
+  padding: 16rpx 40rpx;
 }
 
 .progress-track {
-  height: 8rpx;
+  height: 12rpx;
   background: #E5E5E5;
-  border-radius: 4rpx;
+  border-radius: 6rpx;
   overflow: hidden;
 }
 
 .progress-fill {
   height: 100%;
   background: #FF8C42;
-  border-radius: 4rpx;
+  border-radius: 6rpx;
   transition: width 0.3s ease;
 }
 
@@ -64,6 +66,27 @@
   display: block;
 }
 
+/* 右侧插画 */
+.side-illustration {
+  position: absolute;
+  top: 160rpx;
+  right: 32rpx;
+  width: 180rpx;
+  height: 180rpx;
+  background: linear-gradient(135deg, #FFE4D0 0%, #FFD4B8 100%);
+  border-radius: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+.side-illus-label {
+  font-size: 22rpx;
+  color: #D4A574;
+}
+
+/* 场景卡片 */
 .scene-card {
   margin: 24rpx 40rpx 32rpx;
   background: #FFFFFF;
@@ -72,68 +95,119 @@
   box-shadow: 0 4rpx 24rpx rgba(0, 0, 0, 0.04);
 }
 
+.scene-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 20rpx;
+  margin-bottom: 32rpx;
+}
+
+.q-badge {
+  width: 64rpx;
+  height: 64rpx;
+  background: #FF8C42;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.q-text {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
 .scene-text {
   font-size: 32rpx;
-  color: #1A1A1A;
+  color: #3D3D3D;
   line-height: 1.8;
+  flex: 1;
   display: block;
 }
 
+.scene-divider {
+  height: 2rpx;
+  background: #F0F0F0;
+  margin-bottom: 32rpx;
+}
+
+/* 选项 */
 .options-section {
-  padding: 0 40rpx;
   display: flex;
   flex-direction: column;
-  gap: 24rpx;
+  gap: 20rpx;
 }
 
 .option-row {
-  background: #FFFFFF;
+  background: #FAFAFA;
   border-radius: 24rpx;
-  padding: 32rpx;
+  padding: 28rpx;
   display: flex;
-  align-items: flex-start;
-  gap: 24rpx;
+  align-items: center;
+  gap: 20rpx;
   border: 2rpx solid transparent;
   transition: all 0.2s ease;
 }
 
 .option-row.selected {
-  background: rgba(255, 140, 66, 0.1);
+  background: #FFFFFF;
   border-color: #FF8C42;
+  box-shadow: 0 4rpx 16rpx rgba(255, 140, 66, 0.1);
 }
 
 .option-label {
   width: 56rpx;
   height: 56rpx;
-  background: #FF8C42;
   border-radius: 16rpx;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  margin-top: 4rpx;
 }
 
 .label-text {
   font-size: 28rpx;
-  font-weight: 600;
+  font-weight: 700;
   color: #FFFFFF;
 }
 
 .option-text {
   font-size: 30rpx;
-  color: #1A1A1A;
+  color: #3D3D3D;
   line-height: 1.5;
   flex: 1;
 }
 
+/* 底部提示 */
 .footer-hint {
-  text-align: center;
-  margin-top: 48rpx;
-  padding-bottom: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40rpx;
+  padding-bottom: 24rpx;
+}
+
+.hint-heart {
+  font-size: 28rpx;
+  color: #FF8C42;
 }
 
 .hint-text {
-  font-size: 24rpx;
+  font-size: 26rpx;
   color: #999999;
+}
+
+/* 底部装饰 */
+.bottom-deco {
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deco-label {
+  font-size: 24rpx;
+  color: #D4A574;
 }
