@@ -99,11 +99,13 @@ export default function HistoryPage() {
           </View>
         )}
 
-        <View className='new-test-section'>
-          <View className='new-test-btn' onClick={handleNewTest}>
-            <Text className='new-test-text'>+ 开始新测试</Text>
+        {records.length > 0 && (
+          <View className='new-test-section'>
+            <View className='new-test-btn' onClick={handleNewTest}>
+              <Text className='new-test-text'>+ 开始新测试</Text>
+            </View>
           </View>
-        </View>
+        )}
 
         {records.length > 0 && (
           <Text className='clear-link' onClick={handleClear}>清空记录</Text>

@@ -1,20 +1,28 @@
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import './index.scss'
+import allQuestions from '../../data/questions.json'
+import resultsMeta from '../../data/results.json'
 
-const questions = [
-  {
-    id: 1,
-    scene: '凌晨2点，孩子突然哭闹着说"我害怕，睡不着"，你会......',
-    options: [
-      { label: 'A', text: '立刻过去安抚，抱抱他，陪他入睡', type: 'A', color: '#FF8C42' },
-      { label: 'B', text: '问清原因，告诉他"有妈妈在，不怕"', type: 'B', color: '#8FBC8F' },
-      { label: 'C', text: '让他自己躺着，告诉他要勇敢', type: 'C', color: '#6B8E8B' },
-      { label: 'D', text: '有点不耐烦，觉得他又在找关注', type: 'D', color: '#9B7EBD' }
-    ]
+const optionColors = { A: '#FF8C42', B: '#8FBC8F', C: '#6B8E8B', D: '#9B7EBD' }
+
+function getQuestionsForAge(ageGroup) {
+  const ageMap = {
+    '备孕/怀孕中': '0-3',
+    '0-3岁': '0-3',
+    '4-6岁': '4-6',
+    '7-12岁': '7-12',
+    '13-18岁': '13-18',
+    '多个年龄段': null
   }
-]
+  const target = ageMap[ageGroup]
+  if (!target) return allQuestions.filter(q => q.age_group === '0-3').slice(0, 7)
+    .concat(allQuestions.filter(q => q.age_group === '4-6').slice(0, 7))
+    .concat(allQuestions.filter(q => q.age_group === '7-12').slice(0, 7))
+    .concat(allQuestions.filter(q => q.age_group === '13-18').slice(0, 7))
+  return allQuestions.filter(q => q.age_group === target).slice(0, 28)
+}
 
 export default function QuizPage() {
   const [current, setCurrent] = useState(0)
@@ -22,34 +30,76 @@ export default function QuizPage() {
   const [selected, setSelected] = useState('')
   const [animating, setAnimating] = useState(false)
 
+  const instance = Taro.getCurrentInstance()
+  const params = instance?.router?.params || {}
+  const ageGroup = params.age || '0-3岁'
+
+  const questions = getQuestionsForAge(ageGroup)
+  const total = questions.length || 28
   const q = questions[current] || questions[0]
-  const total = 28
-  const progress = ((current + 1) / total) * 100
+  const progress = total > 0 ? ((current + 1) / total) * 100 : 0
 
   const handleSelect = (option) => {
     if (animating) return
-    setSelected(option.label)
+    setSelected(option.type)
     setAnimating(true)
     Taro.vibrateShort({ type: 'light' })
 
     setTimeout(() => {
-      setScores(prev => ({
-        ...prev,
-        [option.type]: prev[option.type] + 1
-      }))
+      setScores(prev => {
+        const next = {
+          ...prev,
+          [option.type]: prev[option.type] + 1
+        }
 
-      if (current + 1 >= total) {
-        const resultParams = Object.entries({
-          ...scores,
-          [option.type]: scores[option.type] + 1
-        }).map(([k, v]) => `${k}=${v}`).join('&')
-        Taro.navigateTo({ url: `/pages/result/index?${resultParams}` })
-      } else {
-        setCurrent(prev => prev + 1)
-        setSelected('')
-        setAnimating(false)
-      }
+        if (current + 1 >= total) {
+          const resultKey = getResultKey(next)
+          const profile = resultsMeta.profiles[resultKey]
+          const record = {
+            date: new Date().toISOString().slice(0, 10),
+            scores: next,
+            profile: profile?.title || resultKey,
+            ageGroup: ageGroup,
+            count: total
+          }
+          try {
+            const existing = Taro.getStorageSync('quiz_records') || []
+            Taro.setStorageSync('quiz_records', [record, ...existing])
+          } catch (e) {
+            console.error('save record failed', e)
+          }
+
+          const resultParams = Object.entries(next)
+            .map(([k, v]) => `${k}=${v}`)
+            .join('&') + `&key=${encodeURIComponent(resultKey)}`
+          Taro.navigateTo({ url: `/pages/result/index?${resultParams}` })
+        } else {
+          setCurrent(prev => prev + 1)
+          setSelected('')
+          setAnimating(false)
+        }
+
+        return next
+      })
     }, 400)
+  }
+
+  const getResultKey = (finalScores) => {
+    const entries = Object.entries(finalScores)
+    const values = entries.map(([_, v]) => v)
+    const maxVal = Math.max(...values)
+    const minVal = Math.min(...values)
+    if (maxVal - minVal <= 2) return 'balanced'
+    const maxKeys = entries.filter(([_, v]) => v === maxVal).map(([k]) => k).sort()
+    return maxKeys.join('+') || 'balanced'
+  }
+
+  if (!q) {
+    return (
+      <View className='quiz-page'>
+        <Text style={{ textAlign: 'center', marginTop: '200px' }}>题目加载中...</Text>
+      </View>
+    )
   }
 
   return (
@@ -82,7 +132,7 @@ export default function QuizPage() {
           <View className='q-badge'>
             <Text className='q-text'>Q.</Text>
           </View>
-          <Text className='scene-text'>{q.scene}</Text>
+          <Text className='scene-text'>{q.question}</Text>
         </View>
         <View className='scene-divider' />
 
@@ -90,12 +140,12 @@ export default function QuizPage() {
         <View className='options-section'>
           {q.options.map((opt) => (
             <View
-              key={opt.label}
-              className={`option-row ${selected === opt.label ? 'selected' : ''}`}
+              key={opt.type}
+              className={`option-row ${selected === opt.type ? 'selected' : ''}`}
               onClick={() => handleSelect(opt)}
             >
-              <View className='option-label' style={{ backgroundColor: opt.color }}>
-                <Text className='label-text'>{opt.label}</Text>
+              <View className='option-label' style={{ backgroundColor: optionColors[opt.type] }}>
+                <Text className='label-text'>{opt.type}</Text>
               </View>
               <Text className='option-text'>{opt.text}</Text>
             </View>

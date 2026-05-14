@@ -2,39 +2,53 @@ import Taro from '@tarojs/taro'
 import { View, Text, ScrollView } from '@tarojs/components'
 import { useState, useEffect } from 'react'
 import './index.scss'
+import resultsMeta from '../../data/results.json'
 
-const resultsData = {
-  '温室园丁': {
-    title: '温室园丁',
-    subtitle: '你治愈的不是一个问题，是一个人',
-    features: '你优先处理情绪再处理事情。孩子在你这里学到"我的感受是被接纳的"。',
-    risk: '规则弹性过大，孩子可能分不清"被接纳"和"可以为所欲为"。',
-    suggestion: '在情绪接纳后，主动补一句"但这件事我们还是要聊聊"。',
-    course: '温柔而坚定',
-    color: '#D4A574'
-  }
-}
+const dimColors = { A: '#FF8C42', B: '#8FBC8F', C: '#6B8E8B', D: '#9B7EBD' }
+const dimNames = { A: '情绪回应', B: '规则锚定', C: '探索追问', D: '行动果断' }
 
 export default function ResultPage() {
   const [screen, setScreen] = useState(0)
   const [profile, setProfile] = useState(null)
-  const [scores, setScores] = useState({ A: 8, B: 6, C: 5, D: 5 })
+  const [scores, setScores] = useState({ A: 0, B: 0, C: 0, D: 0 })
+  const [winHeight, setWinHeight] = useState(600)
 
   useEffect(() => {
+    const info = Taro.getSystemInfoSync()
+    setWinHeight(info.windowHeight - 80)
+
     const instance = Taro.getCurrentInstance()
     const params = instance?.router?.params || {}
     const parsed = {}
     ;['A','B','C','D'].forEach(k => {
-      parsed[k] = parseInt(params[k] || scores[k], 10)
+      parsed[k] = parseInt(params[k] || '0', 10)
     })
     setScores(parsed)
 
-    const maxKey = Object.entries(parsed).reduce((a, b) => a[1] > b[1] ? a : b)[0]
-    const profileMap = {
-      A: '温室园丁', B: '规则建筑师', C: '探索引路人', D: '行动指挥官'
+    const key = params.key || getResultKey(parsed)
+    const found = resultsMeta.profiles[key]
+    if (found) {
+      setProfile({
+        title: found.title,
+        subtitle: found.subtitle,
+        features: found.description,
+        risk: found.risk,
+        suggestion: found.suggestion,
+        course: found.course?.replace('推荐：《', '')?.replace('》', '') || '',
+        color: dimColors[key?.split('+')?.[0]] || '#D4A574'
+      })
     }
-    setProfile(resultsData[profileMap[maxKey]] || resultsData['温室园丁'])
   }, [])
+
+  const getResultKey = (finalScores) => {
+    const entries = Object.entries(finalScores)
+    const values = entries.map(([_, v]) => v)
+    const maxVal = Math.max(...values)
+    const minVal = Math.min(...values)
+    if (maxVal - minVal <= 2) return 'balanced'
+    const maxKeys = entries.filter(([_, v]) => v === maxVal).map(([k]) => k).sort()
+    return maxKeys.join('+') || 'balanced'
+  }
 
   const handleNext = () => {
     if (screen < 2) setScreen(screen + 1)
@@ -95,21 +109,19 @@ export default function ResultPage() {
       )}
 
       {screen === 1 && (
-        <ScrollView className='screen screen-2' scrollY>
+        <ScrollView className='screen screen-2' scrollY style={{ height: `${winHeight}px` }}>
           <Text className='section-title'>📊 你的四维度分布</Text>
 
           <View className='dimension-list'>
             {Object.entries(scores).map(([key, val]) => (
               <View key={key} className='dimension-row'>
-                <Text className='dim-label'>
-                  {key === 'A' ? '情绪回应' : key === 'B' ? '规则锚定' : key === 'C' ? '探索追问' : '行动果断'}
-                </Text>
+                <Text className='dim-label'>{dimNames[key]}</Text>
                 <View className='dim-bar-wrap'>
                   <View
                     className='dim-bar'
                     style={{
-                      width: `${(val / maxScore) * 100}%`,
-                      backgroundColor: key === 'A' ? '#FF8C42' : key === 'B' ? '#6B8E8B' : key === 'C' ? '#8FBC8F' : '#9B7EBD'
+                      width: `${maxScore > 0 ? (val / maxScore) * 100 : 0}%`,
+                      backgroundColor: dimColors[key]
                     }}
                   />
                 </View>
@@ -144,7 +156,7 @@ export default function ResultPage() {
       )}
 
       {screen === 2 && (
-        <ScrollView className='screen screen-3' scrollY>
+        <ScrollView className='screen screen-3' scrollY style={{ height: `${winHeight}px` }}>
           <Text className='section-title'>📚 专属课程推荐</Text>
 
           <View className='course-card'>

@@ -1,0 +1,86 @@
+# 新闻联播爬虫系统 - 配置文件
+# 复制为 config.yaml 后按需修改
+
+# === 爬虫配置 ===
+crawler:
+  # 央视网新闻联播地址模板
+  base_url: "https://tv.cctv.com/lm/xwlb/day/{date}.shtml"
+  # 请求间隔（秒）- 随机范围
+  min_delay: 2.0
+  max_delay: 5.0
+  # 超时时间（秒）
+  timeout: 30
+  # 重试次数
+  max_retries: 3
+  # 是否检查 robots.txt
+  check_robots: true
+  # User-Agent 轮换
+  rotate_ua: true
+
+# === 代理池配置 ===
+proxy:
+  # 是否启用代理
+  enabled: false
+  # 代理类型: free / paid / mixed
+  type: "free"
+  # 免费代理源列表（内置）
+  free_sources:
+    - "https://raw.githubusercontent.com/clarketm/proxy-list/master/proxy-list-raw.txt"
+    - "https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/http.txt"
+  # 付费代理配置（预留接口）
+  paid:
+    # 服务商: brightdata / oxylabs / smartproxy
+    provider: ""
+    api_key: ""
+    host: ""
+    port: 0
+    username: ""
+    password: ""
+  # 代理验证超时（秒）
+  verify_timeout: 10
+  # 代理池刷新间隔（分钟）
+  refresh_interval: 60
+
+# === NLP配置 ===
+nlp:
+  # 关键词提取数量
+  top_k: 10
+  # 摘要长度（字）
+  summary_len: 100
+  # 是否启用主题聚类（LDA）
+  enable_lda: false
+  # 是否启用情感分析
+  enable_sentiment: false
+  # 停用词文件路径（留空使用内置）
+  stopwords_path: ""
+
+# === 定时调度配置 ===
+scheduler:
+  # 执行时间: 每天21:45（央视网21:30更新后）
+  cron_hour: 21
+  cron_minute: 45
+  # 时区
+  timezone: "Asia/Shanghai"
+  # 错过任务补偿
+  misfire_grace_time: 3600
+
+# === 存储配置 ===
+storage:
+  # 数据库类型: sqlite / postgresql
+  db_type: "sqlite"
+  # SQLite路径
+  sqlite_path: "data/xwlb.db"
+  # PostgreSQL配置（预留）
+  postgres:
+    host: "localhost"
+    port: 5432
+    database: "xwlb"
+    username: ""
+    password: ""
+
+# === 日志配置 ===
+logging:
+  level: "INFO"
+  file: "logs/xwlb.log"
+  rotation: "1 day"
+  retention: "30 days"

@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "skills": {
+    "skill-creator": {
+      "name": "Skill Creator",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=skill-creator",
+      "source": "skillhub",
+      "version": "0.1.0"
+    },
+    "humanizer-zh": {
+      "name": "humanizer-zh",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=humanizer-zh",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "superpowers": {
+      "name": "Superpowers Dev Workflow",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=superpowers",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "agent-reach": {
+      "name": "Agent Reach",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=agent-reach",
+      "source": "skillhub",
+      "version": "1.1.0"
+    },
+    "playwright-mcp": {
+      "name": "Playwright MCP",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=playwright-mcp",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "ui-ux-pro-max-2": {
+      "name": "Ui Ux Pro Max",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=ui-ux-pro-max-2",
+      "source": "skillhub",
+      "version": "0.1.0"
+    },
+    "frontend-design-ultimate": {
+      "name": "Frontend Design Ultimate",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=frontend-design-ultimate",
+      "source": "skillhub",
+      "version": "1.0.0"
+    },
+    "chinese-sensitive-words": {
+      "name": "Chinese Sensitive Words",
+      "zip_url": "https://lightmake.site/api/v1/download?slug=chinese-sensitive-words",
+      "source": "skillhub",
+      "version": "1.0.5"
+    }
+  }
+}

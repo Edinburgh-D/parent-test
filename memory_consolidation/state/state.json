@@ -1,0 +1,29 @@
+{
+  "diary": {
+    "count": 56,
+    "last_ts": "2026-05-13T03:51:10.506143",
+    "last_day": 22,
+    "last_sessions": 1,
+    "last_messages": 4,
+    "last_filename": "day22-2026-05-13-all_phone_ops_a_lie_i_rebuilt.md",
+    "last_latency_s": 13.6,
+    "last_skip": "conversation_hash_unchanged"
+  },
+  "compact": {
+    "count": 56,
+    "last_ts": "2026-05-13T03:51:10.892648",
+    "last_invoke": 23,
+    "last_sessions": 50,
+    "last_messages": 292,
+    "last_latency_s": 13.3,
+    "last_model": "k2p6",
+    "last_skip": "stm_hash_unchanged"
+  },
+  "stm": {
+    "count": 43,
+    "last_ts": "2026-05-14T17:16:46.135919",
+    "last_sessions": 56,
+    "last_messages": 341,
+    "last_chars": 35925
+  }
+}

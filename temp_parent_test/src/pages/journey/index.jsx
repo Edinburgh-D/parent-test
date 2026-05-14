@@ -20,7 +20,30 @@ export default function JourneyPage() {
       '/pages/index/index',
       '/pages/courses/index'
     ]
-    if (urls[idx]) Taro.navigateTo({ url: urls[idx] })
+    let url = urls[idx]
+    if (!url) return
+
+    if (idx === 2) {
+      Taro.redirectTo({ url })
+      return
+    }
+
+    if (idx === 0) {
+      try {
+        const records = Taro.getStorageSync('quiz_records') || []
+        const latest = records[0]
+        if (latest?.scores) {
+          const params = Object.entries(latest.scores)
+            .map(([k, v]) => `${k}=${v}`)
+            .join('&') + `&key=${encodeURIComponent(latest.profile || '')}`
+          url = `${url}?${params}`
+        }
+      } catch (e) {
+        console.error('read record failed', e)
+      }
+    }
+
+    Taro.navigateTo({ url })
   }
 
   return (

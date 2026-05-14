@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  xwlb-crawler:
+    build: .
+    container_name: xwlb-crawler
+    restart: unless-stopped
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./config.yaml:/app/config.yaml:ro
+    environment:
+      - TZ=Asia/Shanghai
+      - PYTHONUNBUFFERED=1
+    # 默认运行定时调度
+    command: python main.py schedule
+    # 如需立即运行一次测试，取消下面注释并注释掉上面的 command
+    # command: python main.py run
+
+  # 可选：PostgreSQL 存储（如需替换SQLite）
+  # postgres:
+  #   image: postgres:15-alpine
+  #   container_name: xwlb-postgres
+  #   restart: unless-stopped
+  #   environment:
+  #     POSTGRES_DB: xwlb
+  #     POSTGRES_USER: xwlb
+  #     POSTGRES_PASSWORD: changeme
+  #   volumes:
+  #     - pgdata:/var/lib/postgresql/data
+  #   ports:
+  #     - "5432:5432"
+
+# volumes:
+#   pgdata:

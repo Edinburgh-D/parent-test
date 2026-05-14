@@ -6,6 +6,8 @@ import './index.scss'
 export default function PosterPage() {
   const [saved, setSaved] = useState(false)
   const [shareText, setShareText] = useState(0)
+  const [winWidth, setWinWidth] = useState(320)
+  const [winHeight, setWinHeight] = useState(512)
 
   const profile = {
     name: '温室园丁',
@@ -23,9 +25,13 @@ export default function PosterPage() {
   const scoreColors = { A: '#FF8C42', B: '#8FBC8F', C: '#6B8E8B', D: '#9B7EBD' }
 
   useEffect(() => {
+    const info = Taro.getSystemInfoSync()
+    const W = Math.floor(info.windowWidth * 0.85)
+    const H = Math.floor(W * 1.6)
+    setWinWidth(W)
+    setWinHeight(H)
+
     const ctx = Taro.createCanvasContext('posterCanvas')
-    const W = 375
-    const H = 600
 
     // 背景
     ctx.setFillStyle('#FFFFFF')
@@ -44,7 +50,7 @@ export default function PosterPage() {
 
     // 画像名
     ctx.setFillStyle('#FF8C42')
-    ctx.setFontSize(36)
+    ctx.setFontSize(Math.floor(W / 10))
     ctx.fillText(profile.name, W / 2, 120)
 
     // 金句
@@ -53,8 +59,8 @@ export default function PosterPage() {
     ctx.fillText(`"${profile.quote}"`, W / 2, 170)
 
     // 四维度方块 2x2
-    const sqSize = 80
-    const gap = 16
+    const sqSize = Math.floor(W * 0.22)
+    const gap = Math.floor(W * 0.04)
     const startX = (W - sqSize * 2 - gap) / 2
     const startY = 220
 
@@ -77,13 +83,14 @@ export default function PosterPage() {
     // 扫码提示
     ctx.setFillStyle('#999999')
     ctx.setFontSize(12)
-    ctx.fillText('扫码测测你的育儿风格', W / 2, 430)
+    ctx.fillText('扫码测测你的育儿风格', W / 2, H - 170)
 
     // 二维码占位
+    const qrSize = Math.floor(W * 0.27)
     ctx.setFillStyle('#F5F5F5')
-    ctx.fillRect((W - 100) / 2, 450, 100, 100)
+    ctx.fillRect((W - qrSize) / 2, H - 150, qrSize, qrSize)
     ctx.setStrokeStyle('#E5E5E5')
-    ctx.strokeRect((W - 100) / 2, 450, 100, 100)
+    ctx.strokeRect((W - qrSize) / 2, H - 150, qrSize, qrSize)
 
     ctx.draw()
   }, [])
@@ -121,7 +128,11 @@ export default function PosterPage() {
       </View>
 
       <View className='poster-preview'>
-        <Canvas canvasId='posterCanvas' className='poster-canvas' style={{ width: '375px', height: '600px' }} />
+        <Canvas
+          canvasId='posterCanvas'
+          className='poster-canvas'
+          style={{ width: `${winWidth}px`, height: `${winHeight}px` }}
+        />
       </View>
 
       <View className='action-section'>
