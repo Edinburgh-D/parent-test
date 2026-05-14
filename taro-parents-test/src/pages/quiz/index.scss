@@ -1,129 +1,132 @@
-.quiz {
-  padding: 16px 20px 32px;
-  background: linear-gradient(180deg, #f8f9ff 0%, #ffffff 100%);
+$bg-color: #F5F0EB;
+$primary: #FF8C42;
+$text-primary: #1A1A1A;
+$text-secondary: #666666;
+$text-light: #999999;
+$card-bg: #FFFFFF;
+$border-color: #E5E5E5;
+
+.quiz-page {
   min-height: 100vh;
+  background-color: $bg-color;
+  padding: 0 20px 32px;
+  display: flex;
+  flex-direction: column;
 }
 
-.quiz-header {
+// 导航栏
+.nav-bar {
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px;
+  padding: 0 4px;
+
+  .back-btn {
+    font-size: 20px;
+    color: $text-primary;
+    width: 40px;
+    text-align: center;
+  }
+
+  .nav-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: $text-primary;
+  }
+
+  .nav-placeholder {
+    width: 40px;
+  }
 }
 
-.quiz-header-title {
-  font-size: 17px;
-  font-weight: 600;
-  color: #1e1b4b;
+// 进度条
+.progress-section {
+  margin-top: 12px;
+
+  .progress-text {
+    font-size: 12px;
+    color: $text-light;
+    margin-top: 8px;
+    display: block;
+  }
 }
 
-.quiz-header-close {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: #f3f4f6;
-  border: none;
-  color: #6b7280;
-  font-size: 18px;
-  line-height: 32px;
-  text-align: center;
-  padding: 0;
-}
-
-.quiz-header-close::after {
-  border: none;
-}
-
-.progress-bar {
-  height: 6px;
-  background: #e5e7eb;
-  border-radius: 3px;
-  overflow: hidden;
-  margin-bottom: 24px;
-}
-
-.progress-fill {
-  height: 100%;
-  background: linear-gradient(90deg, #4f46e5 0%, #7c3aed 100%);
-  border-radius: 3px;
-  transition: width 0.4s ease;
-}
-
-.question-card {
-  background: #fff;
+// 场景卡片
+.scene-card {
+  background: $card-bg;
   border-radius: 20px;
-  padding: 28px 24px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+
+  .scene-text {
+    font-size: 16px;
+    color: $text-primary;
+    line-height: 1.8;
+  }
 }
 
-.question-num {
-  font-size: 13px;
-  color: #4f46e5;
-  font-weight: 600;
-  margin-bottom: 16px;
-  display: block;
-}
-
-.question-text {
-  font-size: 18px;
-  font-weight: 600;
-  color: #1e1b4b;
-  line-height: 1.6;
-  margin-bottom: 24px;
-  display: block;
-}
-
-.options {
+// 选项区域
+.options-section {
+  margin-top: 16px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 .option-btn {
-  background: #f9fafb;
-  border: 2px solid #f3f4f6;
-  border-radius: 14px;
-  padding: 16px 18px;
+  background: $card-bg;
+  border-radius: 12px;
+  padding: 16px;
   display: flex;
   align-items: flex-start;
-  gap: 12px;
-  text-align: left;
-  transition: all 0.15s ease;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+
+  &:active {
+    background: rgba(255, 140, 66, 0.1);
+    transform: scale(0.98);
+  }
+
+  .option-tag {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: $primary;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    flex-shrink: 0;
+  }
+
+  .option-text {
+    font-size: 15px;
+    color: $text-secondary;
+    line-height: 1.5;
+    flex: 1;
+  }
 }
 
-.option-btn::after {
-  border: none;
-}
-
-.option-btn:active {
-  background: #eef2ff;
-  border-color: #4f46e5;
-}
-
-.option-index {
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: #e5e7eb;
-  color: #6b7280;
-  font-size: 12px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  line-height: 26px;
+// 底部提示
+.hint-section {
+  margin-top: 24px;
   text-align: center;
+
+  .hint-text {
+    font-size: 12px;
+    color: $text-light;
+  }
 }
 
-.option-btn:active .option-index {
-  background: #4f46e5;
-  color: #fff;
-}
-
-.option-text {
-  font-size: 15px;
-  color: #374151;
-  line-height: 1.5;
-  flex: 1;
+// 加载
+.loading-text {
+  font-size: 16px;
+  color: $text-secondary;
+  text-align: center;
+  margin-top: 100px;
 }
